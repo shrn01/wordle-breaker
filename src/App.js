@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Form from './form';
+import {useState} from 'react';
+import RenderWords from './RenderWords';
 
 function App() {
+  const [dict, setdict] = useState({})
+  // console.log(dict)
+  // console.log(wordList)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Wordle Breaker</h3>
+      <Form dict={dict} onChange={(e) => {setdict(e)}}/>
+      <RenderWords dict={dict}/>
     </div>
   );
 }
